@@ -14,12 +14,10 @@ export const Timer: React.FC<TimerProps> = ({
 }) => {
   const [timeRemaining, setTimeRemaining] = useState(initialTime);
 
-  // Reset ketika initialTime berubah
   useEffect(() => {
     setTimeRemaining(initialTime);
   }, [initialTime]);
 
-  // Countdown logic
   useEffect(() => {
     if (!isActive) return;
 
@@ -40,8 +38,8 @@ export const Timer: React.FC<TimerProps> = ({
   const minutes = Math.floor(timeRemaining / 60);
   const seconds = timeRemaining % 60;
 
-  const isWarning = timeRemaining <= 30;   // 30 detik terakhir
-  const isCritical = timeRemaining <= 10;  // 10 detik terakhir
+  const isWarning = timeRemaining <= 30;  
+  const isCritical = timeRemaining <= 10;  
 
   return (
     <div className="bg-white rounded-lg shadow-md px-6 py-4 flex items-center justify-between">
